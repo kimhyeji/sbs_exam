@@ -1,31 +1,39 @@
-//code.oa.gg/java8/1071
-// 문제 : 사람의 id를 출력해주세요.
-// 조건 : 사람의 id를 20으로 설정해주세요.
-// 조건 : 사람 클래스의 id 필드의 private 속성은 수정할 수 없습니다.
+package com.sbs.java.exam1;
 
-class Main {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
 	public static void main(String[] args) {
-		사람 a사람 = new 사람();
+		Scanner sc = new Scanner(System.in);
 		
-		a사람.setId(20);
-		System.out.println("제 번호는 " + a사람.getId() + " 입니다.");
-		// 구현시작
-		//
-		// 구현끝
-		// 출력 : 제 번호는 20 입니다.
-	}
-}
+		int inputNum = -1;
+		List<Integer> nums = new ArrayList<>();
+		
+		while (true) {
+			System.out.printf("명령어) ");
+			String command = sc.nextLine();
+			command = command.trim();			
+			
+			if ( command.length() == 0 ) {
+				continue;
+			}
+			
+			if ( command.equals("system exit") ) {
+				break;
+			}
+			else if ( command.equals("num") ) {
+				System.out.printf("숫자 : ");
+				int num = sc.nextInt();
+				sc.nextLine();
 
-class 사람 {
-	private int id;
-	
-	public void setId(int id) {
-		this.id = id;
+				nums.add(num);
+			}
+			else if ( command.equals("nums") ) {
+				System.out.printf("숫자들 : %s\n", nums.toString());
+			}
+		}
+		sc.close();
 	}
-	
-	public int getId() {
-		return id;
-	}
-
-	// 힌트 : 여기에 메소드 2개 추가해야 합니다.
 }
